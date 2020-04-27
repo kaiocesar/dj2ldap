@@ -1,2 +1,5 @@
-Django>=2.0,<3.0
-psycopg2>=2.7,<3.0
+Django==2.2.6
+pyasn1==0.4.8
+pyasn1-modules==0.2.8
+pytz==2019.3
+sqlparse==0.3.1
