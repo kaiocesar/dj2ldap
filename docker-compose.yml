@@ -13,7 +13,7 @@ services:
             - MYSQL_ROOT_PASSWORD=${DJANGO_DB_PASSWORD}
             - MYSQL_DATABASE=${DJANGO_DB_NAME}
         volumes:
-            - /tmp/db:/var/lib/mysql
+            - ./tmp/db:/var/lib/mysql
     web:
         build: .
         restart: always
