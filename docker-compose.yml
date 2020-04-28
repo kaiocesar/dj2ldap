@@ -5,7 +5,15 @@ services:
         image: mysql:8.0.17
         env_file: ./.env.dev
         ports:
-            - "3308:3306"
+            - "3306:3306"
+        environment: 
+            - MYSQL_ROOT_HOST=${DJANGO_DB_HOST}
+            - MYSQL_USER=${DJANGO_DB_USER}
+            - MYSQL_PASSWORD=${DJANGO_DB_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=${DJANGO_DB_PASSWORD}
+            - MYSQL_DATABASE=${DJANGO_DB_NAME}
+        volumes:
+            - /tmp/db:/var/lib/mysql
     web:
         build: .
         command: python manage.py runserver 0.0.0.0:8000

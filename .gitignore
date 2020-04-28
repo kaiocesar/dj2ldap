@@ -132,3 +132,4 @@ dmypy.json
 coreproject/
 *.sqlite3
 manage.py
+tmp/*
