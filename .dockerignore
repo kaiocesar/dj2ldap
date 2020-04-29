@@ -1,0 +1,6 @@
+Makefile
+composer.*
+docker-compose.yml
+Dockerfile
+Docker.build
+.git
