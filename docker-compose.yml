@@ -1,28 +1,24 @@
 version: '3'
 
-services:
-    web:
-        env_file: ./.env.dev
-        build: .
-        restart: always
-        command: python manage.py runserver 0.0.0.0:8000
-        volumes:
-            - .:/usr/src/app/
-        ports:
-            - 8000:8000
-        depends_on: 
-            - db
+services:    
     db:
-        image: mysql:8.0.17
-        env_file: ./.env.dev
+        image: mysql:5.7
+        env_file: ./.env
         ports:
-            - "3306:3306"
+            - '3306:3306'
         environment: 
             - MYSQL_ROOT_HOST=${DJANGO_DB_HOST}
             - MYSQL_USER=${DJANGO_DB_USER}
             - MYSQL_PASSWORD=${DJANGO_DB_PASSWORD}
             - MYSQL_ROOT_PASSWORD=${DJANGO_DB_PASSWORD}
             - MYSQL_DATABASE=${DJANGO_DB_NAME}
+    web:
+        env_file: ./.env
+        build: .
+        command: python manage.py runserver 0.0.0.0:8000
         volumes:
-            - ./tmp/db:/var/lib/mysql        
-    
+            - .:/core
+        ports:
+            - "8000:8000"
+        depends_on: 
+            - db
