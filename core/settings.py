@@ -53,11 +53,11 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('DJANGO_DB_ENGINE', 'django.db.backends.mysql'),
-        'NAME': os.environ.get('DJANGO_DB_NAME', 'db'),
-        'USER': os.environ.get('DJANGO_DB_USER', 'user'),
-        'PASSWORD': os.environ.get('DJANGO_DB_PASSWORD', 'password'),
-        'HOST': os.environ.get('DJANGO_DB_HOST', 'localhost'),
-        'PORT': os.environ.get('DJANGO_DB_PORT', '3306'),
+        'NAME': os.environ.get('SQL_NAME', 'db'),
+        'USER': os.environ.get('SQL_USER', 'user'),
+        'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
+        'HOST': os.environ.get('SQL_HOST', 'localhost'),
+        'PORT': os.environ.get('SQL_PORT', '3306'),
     }
 }
 
