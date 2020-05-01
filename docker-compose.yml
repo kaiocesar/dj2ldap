@@ -4,6 +4,9 @@ services:
   db:
     image: mysql:5.7
     env_file: ./.env
+    restart: always
+    expose:
+      - '3306'
     ports:
       - '3306:3306'
     environment: 
